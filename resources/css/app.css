@@ -1,0 +1,129 @@
+body {
+    background-image: url("/assets/bg_space.bmp");
+    color: white;
+    position: relative;
+}
+
+.nav-item {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nav-item:hover {
+    transition: 1s;
+    background-color: #75a9d7;
+    border-radius: 5px;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.carousel-item {
+    height: 32rem;
+    background: black;
+    color: white;
+    position: relative;
+}
+
+.overlay-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.7;
+}
+
+.main-heading {
+    text-align: center;
+}
+
+.separator-line {
+    border: 0;
+    height: 5px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(9, 84, 132), rgba(0, 0, 0, 0));
+}
+
+.front-page-section p,
+.agency-text {
+    text-align: center;
+    margin: 1rem;
+}
+
+.footer-text {
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+}
+
+.front-page-section {
+    margin: 2rem;
+}
+
+.img-container {
+    position: relative;
+}
+
+.text-block {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.agency-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 19rem;
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -80px;
+    visibility: hidden;
+}
+
+#side-vertical-nav {
+    position: fixed;
+    top: 130px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.other-rockets {
+    height: 600px;
+}
+
+.china-rocket {
+    height: 300px;
+}
+
+.rocket-section {
+    margin-bottom: 2rem;
+}
+
+div.outer {
+    width: 300px; 
+    margin: 0 auto; 
+    overflow: visible;
+}
+div.inner {
+    position:relative;
+    float: right;
+    right: 50%;
+}
+div.inner img {
+    position: relative; 
+    right:-50%;
+}
