@@ -103,32 +103,5 @@
 @include('modal.delete-manufacturer')
 @endsection
 @section('pagespecificscripts')
-<script type="text/javascript">
-
-    var frm = $('#manu-edit-form');
-    frm.submit(function (e) {
-        e.preventDefault();
-        console.log(frm.serialize());
-        $.ajax({
-            type: frm.attr('method'),
-            url: frm.attr('action'),
-            data: frm.serialize(),
-
-            success: function (data) {
-                var html = '<tr>';
-     html += '<td>'+data.country_id+'</td>';
-     html += '<td>'+data.name+'</td></tr>';
-     $('#manufacturer-tbody').prepend(html);
-     $('#manu-edit-form')[0].reset();
-                console.log('Submission was successful.');
-                console.log(data);
-            },
-            error: function (data) {
-                console.log('An error occurred.');
-                console.log(data);
-            },
-        });
-    });
-</script>
-    <script src="{{ asset('js/manufacturer/edit-manufacturer.js') }}"></script>
+<script src="{{ asset('js/manufacturer/edit-manufacturer.js') }}"></script>
 @stop

@@ -23,7 +23,7 @@ Route::view('/vesmirne-agentury', 'vesmirne-agentury')->name("vesmirneAgenturyPa
 Route::view('/vysvetlivky', 'vysvetlivky')->name("vysvetlivkyPage");
 
 Route::get('/krajiny', [CountryController::class, 'index'])->name("krajinyPage");
-Route::get('/fetch_data', [CountryController::class, 'fetch_data'])->name('fetchCountry');
+Route::get('/fetchCountries', [CountryController::class, 'fetchCountries'])->name('fetchCountry');
 Route::post('/destroyCountry', [CountryController::class, 'destroy'])->name('deleteCountry');
 Route::post('/updateCountry', [CountryController::class, 'update'])->name('updateCountry');
 Route::post('/storeCountry', [CountryController::class, 'store'])->name('createCountry');

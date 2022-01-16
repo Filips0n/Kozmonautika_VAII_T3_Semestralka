@@ -14,8 +14,8 @@
             <div class="modal-body text-dark">
                 <p>Naozaj si prajete odstránť krajinu?</p>
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal" >Zavrieť</button>
-                <a id="button-delete-country" class="delete" style="color: inherit;text-decoration: none;">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Odstránť</button>
+                <a id="button-delete-country"  style="color: inherit;text-decoration: none;">
+                    <button type="button" class="btn btn-danger delete" data-bs-dismiss="modal">Odstránť</button>
                 </a>
             </div>
         </div>

@@ -27,11 +27,13 @@
 @section('pagespecificscripts')
 <script>
 $(document).ready(function(){
+
     $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-            });
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     fetch_data();
     
     function fetch_data() {
@@ -58,48 +60,18 @@ $(document).ready(function(){
                 html += '<td contenteditable id="agency_name"></td>';
                 html += '<td contenteditable id="prefix_rockets"></td>';
                 html += `<td><a style="color: inherit;text-decoration: none;">
-                        <button type="submit" id="add" class="bg-success text-white">
-                            <i class="bi bi-check"></i>
-                        </button>
-                    </a></td></tr>`;/**/
-                /*html += '<tr>';
-                html += `<td>
-                        <form method="post" id="country-add-form" action="{{route("createCountry")}}" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                                <div class="form-group">
-                                    <input class="form-control mb-1" id="add-name-country" name="name" type="text" placeholder="Názov" required>
-                                </div>                              
-                        </form>
-                        </td>`;
-                html += `<td>
-                            <div class="form-group">
-                                    <input id="add-nameagency-country" class="form-control mb-1" name="agency_name" form="country-add-form" type="text" placeholder="Názov agentúry" maxlength="50" required>
-                            </div>
-                        </td>`;
-                html += `<td>
-                    <div class="form-group">
-                            <input id="add-prefix-country" class="form-control mb-1" name="prefix_rockets" form="country-add-form" type="text" placeholder="Prefix k raketám" maxlength="50" required>
-                    </div>
-                </td>`;
-                html += `<td>
-                            <a style="color: inherit;text-decoration: none;">
-                                <button type="submit" form="country-add-form"  class="bg-success text-white">
-                                    <i class="bi bi-check"></i>
-                                </button>
-                            </a>
-                        </td>`;
-                html += '</tr>';*/
+                            <button type="submit" id="add" class="bg-success text-white">
+                                <i class="bi bi-check"></i>
+                            </button>
+                        </a></td></tr>`;
                 $('tbody').html(html);
                 loadButtons();
-                loadForm();
             }
         });
         
     }
     
-    let _token = $('input[name="_token"]').val();
-    
-    
+    let _token = $('input[name="_token"]').val();  
 
     $(document).on('click', '#add', function(){
         let name = $('#name').text();
@@ -134,58 +106,27 @@ $(document).ready(function(){
 
 
     $(document).on('click', '.delete', function(){
-        let id = $(this).data("countrydelete");
+        let id = $(this).attr("id");
         $.ajax({
-        url:"{{ route('deleteCountry') }}",
-        method:"POST",
-        data:{id:id, _token:_token},
-        success:function(data) {
-        fetch_data();
-        }
+            url:"{{ route('deleteCountry') }}",
+            method:"POST",
+            data:{id:id, _token:_token},
+            success:function(data) {
+                fetch_data();
+            }
         });
     });
 
     function loadButtons(){
         const deleteCountryBtns = document.querySelectorAll(".delete-country-btn");
-        const buttonDeleteCountry = document.getElementById("button-delete-country");
+        const delBtn = document.querySelectorAll(".delete");
         for(let i = 0; i < deleteCountryBtns.length; i++){
             const countryDeleteData = deleteCountryBtns[i].dataset.countrydelete;
             deleteCountryBtns[i].addEventListener("click", ()=>{
-                buttonDeleteCountry.dataset.countrydelete = countryDeleteData;
+                delBtn[0].id = countryDeleteData;
             });
         }
     }
-
-    function loadForm(){
-        let _token = $('input[name="_token"]').val();
-        var frm = $('#country-add-form');
-        frm.submit(function (e) {
-            e.preventDefault();
-            console.log(frm.serialize());
-            var name = $("#name").val();
-      var agency_name = $("#agency_name").val();
-      var prefix_rockets = $("#prefix_rockets").val();
-            $.ajax({
-                type: frm.attr('method'),
-                url: frm.attr('action'),
-                /*data: frm.serialize(),*/
-                data:{name:name, agency_name:agency_name,prefix_rockets:prefix_rockets, _token:_token}, 
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#country-add-form')[0].reset();
-                    console.log('Submission was successful.');
-                    console.log(data);
-                    fetch_data();
-                },
-                error: function (data) {
-                    console.log('An error occurred.');
-                    console.log(data);
-                },
-            });
-        });
-    }
 });
 </script>
-
 @stop
