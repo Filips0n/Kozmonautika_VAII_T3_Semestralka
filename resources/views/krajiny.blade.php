@@ -53,12 +53,12 @@ $(document).ready(function(){
                                 </button>
                             </a></td></tr>`;
                 }
-                /*html += '<tr>';
+                html += '<tr>';
                 html += '<td contenteditable id="name"></td>';
                 html += '<td contenteditable id="agency_name"></td>';
-                html += '<td contenteditable id="rocket_prefix"></td>';
-                html += '<td><button type="button" class="btn btn-success btn-xs" id="add">Add</button></td></tr>';*/
-                html += '<tr>';
+                html += '<td contenteditable id="prefix_rockets"></td>';
+                html += '<td><button type="button" class="btn btn-success btn-xs" id="add">Add</button></td></tr>';/**/
+                /*html += '<tr>';
                 html += `<td>
                         <form method="post" id="country-add-form" action="{{route("createCountry")}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
@@ -84,7 +84,7 @@ $(document).ready(function(){
                                 </button>
                             </a>
                         </td>`;
-                html += '</tr>';
+                html += '</tr>';*/
                 $('tbody').html(html);
                 loadButtons();
                 loadForm();
@@ -97,21 +97,21 @@ $(document).ready(function(){
     
     
 
-    /*$(document).on('click', '#add', function(){
+    $(document).on('click', '#add', function(){
         let name = $('#name').text();
         let agency_name = $('#agency_name').text();
-        let rocket_prefix = $('#rocket_prefix').text();
-        if(name != '' && agency_name != '' && rocket_prefix != '') {
+        let prefix_rockets = $('#prefix_rockets').text();
+        if(name != '' && agency_name != '' && prefix_rockets != '') {
             $.ajax({
                 url:"{{route("createCountry")}}",
                 method:"POST",
-                data:{name:name, agency_name:agency_name,rocket_prefix:rocket_prefix, _token:_token},
+                data:{name:name, agency_name:agency_name,prefix_rockets:prefix_rockets, _token:_token},
                 success:function(data) {
                     fetch_data();
                 }
             });
         }
-    });*/
+    });
 
     $(document).on('blur', '.column_name', function(){
         let column_name = $(this).data("column_name");
@@ -153,15 +153,19 @@ $(document).ready(function(){
     }
 
     function loadForm(){
-
+        let _token = $('input[name="_token"]').val();
         var frm = $('#country-add-form');
         frm.submit(function (e) {
             e.preventDefault();
             console.log(frm.serialize());
+            var name = $("#name").val();
+      var agency_name = $("#agency_name").val();
+      var prefix_rockets = $("#prefix_rockets").val();
             $.ajax({
                 type: frm.attr('method'),
                 url: frm.attr('action'),
-                data: frm.serialize(),
+                /*data: frm.serialize(),*/
+                data:{name:name, agency_name:agency_name,prefix_rockets:prefix_rockets, _token:_token}, 
                 contentType: false,
                 processData: false,
                 success: function (data) {
