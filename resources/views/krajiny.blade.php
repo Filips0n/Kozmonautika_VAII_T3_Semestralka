@@ -57,7 +57,11 @@ $(document).ready(function(){
                 html += '<td contenteditable id="name"></td>';
                 html += '<td contenteditable id="agency_name"></td>';
                 html += '<td contenteditable id="prefix_rockets"></td>';
-                html += '<td><button type="button" class="btn btn-success btn-xs" id="add">Add</button></td></tr>';/**/
+                html += `<td><a style="color: inherit;text-decoration: none;">
+                        <button type="submit" id="add" class="bg-success text-white">
+                            <i class="bi bi-check"></i>
+                        </button>
+                    </a></td></tr>`;/**/
                 /*html += '<tr>';
                 html += `<td>
                         <form method="post" id="country-add-form" action="{{route("createCountry")}}" enctype="multipart/form-data">
