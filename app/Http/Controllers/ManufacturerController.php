@@ -34,10 +34,10 @@ class ManufacturerController extends Controller
         ]);
 
         if ($validator->fails()) {
-            dd($validator->errors());
-            return redirect('post/create')
-                        ->withErrors($validator)
-                        ->withInput();
+            return response()->json([
+                'status' => 'error',
+                'data' => $validator->errors()
+            ], 422);
         }
 
         $data = $request->all();
@@ -49,7 +49,7 @@ class ManufacturerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Manufacturer  $manufacturer
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Manufacturer $manufacturer)
@@ -60,11 +60,12 @@ class ManufacturerController extends Controller
         ]);
 
         if ($validator->fails()) {
-            dd($validator->errors());
-            return redirect('post/create')
-                        ->withErrors($validator)
-                        ->withInput();
+            return response()->json([
+                'status' => 'error',
+                'data' => $validator->errors()
+            ], 422);
         }
+
         $manufacturer->name = $request->manufacturer_edit_name;
         $manufacturer->country_id = $request->manufacturer_edit_country_id;
         $manufacturer->save();

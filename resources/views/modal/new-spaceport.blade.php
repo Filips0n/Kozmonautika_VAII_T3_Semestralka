@@ -19,9 +19,7 @@
                             <input class="form-control mb-1" value="{{$country->id}}" name="country_id" type="hidden" min="0" step="1" max="9999" required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control mb-1" id="name" name="name" type="text" placeholder="Názov" maxlength="100" required
-                                    oninvalid="setCustomValidity('Zadajte platný názov. Názov môže obsahovať len písmená, čísla a &quot; -_&quot; .')"
-                                    oninput="setCustomValidity('')" >
+                            <input class="form-control mb-1" id="name" name="name" type="text" placeholder="Názov" maxlength="100" required>
                         </div>
                         <div class="form-group">
                             <input class="form-control mb-1" name="launches" type="number" placeholder="Počet štartov"  min="0" step="1" max="9999" required>

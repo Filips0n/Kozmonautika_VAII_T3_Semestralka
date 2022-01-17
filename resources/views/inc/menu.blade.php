@@ -11,23 +11,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link active {{Request::routeIs("vesmirneAgenturyPage")?"active":""}}" aria-current="page" href="{{route("vesmirneAgenturyPage")}}">Vesmírne agentúry</a>
+                    <a class="nav-link active {{Request::routeIs("vesmirneAgenturyPage")?"activePage":""}}" aria-current="page" href="{{route("vesmirneAgenturyPage")}}">Vesmírne agentúry</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{route("raketyPage")}}">Rakety</a>
+                    <a class="nav-link active {{Request::routeIs("raketyPage")?"activePage":""}}" href="{{route("raketyPage")}}">Rakety</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{route("kozmodromyPage")}}">Kozmodrómy</a>
+                    <a class="nav-link active {{Request::routeIs("kozmodromyPage")?"activePage":""}}" href="{{route("kozmodromyPage")}}">Kozmodrómy</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{route("vysvetlivkyPage")}}">Vysvetlivky</a>
+                    <a class="nav-link active {{Request::routeIs("vysvetlivkyPage")?"activePage":""}}" href="{{route("vysvetlivkyPage")}}">Vysvetlivky</a>
                 </li>
                 @auth
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{route("vyrobcoviaPage")}}">Výrobcovia</a>
+                    <a class="nav-link active {{Request::routeIs("vyrobcoviaPage")?"activePage":""}}" href="{{route("vyrobcoviaPage")}}">Výrobcovia</a>
                 </li>    
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{route("krajinyPage")}}">Krajiny</a>
+                    <a class="nav-link active {{Request::routeIs("krajinyPage")?"activePage":""}}" href="{{route("krajinyPage")}}">Krajiny</a>
                 </li>  
                 @endauth
             </ul>
@@ -50,8 +50,8 @@
                             <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" name="remember" class="form-check-input" id="dropdownCheck">
-                            <label class="form-check-label" for="dropdownCheck">
+                            <input type="checkbox" name="remember" class="form-check-input" id="dropdownCheck2">
+                            <label class="form-check-label float-left" for="dropdownCheck2" style="color: black">
                               Zapamätaj si ma
                             </label>
                           </div>

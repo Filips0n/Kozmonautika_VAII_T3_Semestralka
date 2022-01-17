@@ -28,9 +28,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input class="form-control mb-1" id="spaceport-edit-name" name="spaceport_edit_name" type="text" placeholder="Názov" maxlength="100" required
-                                    oninvalid="setCustomValidity('Zadajte platný názov. Názov môže obsahovať len písmená, čísla a &quot; -_&quot; .')"
-                                    oninput="setCustomValidity('')" >
+                            <input class="form-control mb-1" id="spaceport-edit-name" name="spaceport_edit_name" type="text" placeholder="Názov" maxlength="100" required>
                         </div>
                         <div class="form-group">
                             <input class="form-control mb-1" name="spaceport_edit_launches" id="spaceport-edit-launches" type="number" placeholder="Počet štartov"  min="0" step="1" max="9999" required>

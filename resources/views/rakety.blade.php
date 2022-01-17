@@ -40,7 +40,6 @@
                                                     <i class="bi bi-trash"></i>
                                                 </button>
                                             </a>
-                                            {{--<a href='destroy/{{ $rocket->id }}' style="color: inherit;text-decoration: none;"><button type="button" class="bg-danger text-white"><i class="bi bi-trash"></i></button></a>--}}
                                             <a>
                                                 <button type="button" class="bg-warning text-black rocket-edit-btn"
                                                         data-bs-toggle="modal" data-bs-target="#editModal"
@@ -58,7 +57,7 @@
                         @auth
                             <button action="#" type="button" class="btn btn-primary d-flex align-items-center justify-content-center"
                                                                 data-bs-toggle="modal" data-bs-target="#ModalCreate-{{$rocketGroup->first()->manufacturer->country->id}}">
-                            <i class="bi bi-plus d-flex align-items-center"></i>
+                                <i class="bi bi-plus d-flex align-items-center"></i>
                             </button> 
                         @endauth
                                           
@@ -88,5 +87,5 @@
 @include('modal.delete-rocket')
 @endsection
 @section('pagespecificscripts')
-    <script src="{{ asset('js/rocket/deleteRocket.js') }}"></script>
+<script src="{{ asset('js/rocket/deleteRocket.js') }}"></script>
 @stop

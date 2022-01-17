@@ -55,11 +55,6 @@
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </a>
-                                        {{--<a href='destroySpaceport/{{ $item->id }}' style="color: inherit;text-decoration: none;">
-                                            <button type="button" class="bg-danger text-white">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </a>--}}
                                         <a>
                                             <button type="button" class="bg-warning text-black spaceport-edit-btn"
                                             data-bs-toggle="modal" data-bs-target="#editModalSpaceport"

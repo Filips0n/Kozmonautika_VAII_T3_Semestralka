@@ -99,10 +99,9 @@ $(document).ready(function(){
     
         if(column_value != '') {
             $.ajax({
-                url:"{{ route('updateCountry') }}",
+                url:"{{ route("updateCountry") }}",
                 method:"POST",
                 data:{column_name:column_name, column_value:column_value, id:id, _token:_token},
-                success:function(data){}
             })
         }
     });
@@ -111,7 +110,7 @@ $(document).ready(function(){
     $(document).on('click', '.delete', function(){
         let id = $(this).attr("id");
         $.ajax({
-            url:"{{ route('deleteCountry') }}",
+            url:"{{ route("deleteCountry") }}",
             method:"POST",
             data:{id:id, _token:_token},
             success:function(data) {

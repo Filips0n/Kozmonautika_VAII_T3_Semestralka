@@ -19,6 +19,11 @@ class CountryController extends Controller
         return view('krajiny');
     }
 
+    /**
+     * Fetch all countries.
+     * 
+     * @param \Illuminate\Http\Request  $request
+     */
     function fetchCountries(Request $request)
     {
         if($request->ajax())
@@ -45,10 +50,10 @@ class CountryController extends Controller
             ]);
 
             if ($validator->fails()) {
-                dd($validator->errors());
-                return redirect('post/create')
-                            ->withErrors($validator)
-                            ->withInput();
+                return response()->json([
+                    'status' => 'error',
+                    'data' => $validator->errors()
+                ], 422);
             }
             
             $data = $request->all();
@@ -60,7 +65,6 @@ class CountryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     function update(Request $request)
@@ -77,7 +81,7 @@ class CountryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     function destroy(Request $request)

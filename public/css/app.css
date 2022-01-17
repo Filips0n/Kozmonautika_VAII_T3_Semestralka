@@ -119,13 +119,18 @@ div.outer {
     margin: 0 auto; 
     overflow: visible;
 }
+
 div.inner {
     position:relative;
     float: right;
     right: 50%;
 }
+
 div.inner img {
     position: relative; 
     right:-50%;
 }
 
+.activePage{
+    border-bottom: 3px double #1C6EA4;
+}

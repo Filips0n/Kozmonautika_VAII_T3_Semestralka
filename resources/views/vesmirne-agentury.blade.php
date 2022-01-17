@@ -119,7 +119,7 @@
 
             <a class="anchor" id="CSA"></a>
 
-            <img class="agency-logo" src="../assets/CSA.jpg" alt="CSA logo">
+            <img class="agency-logo" src="../assets/canadian-space-agency.png" alt="CSA logo">
             <p class="agency-text">
                 <strong>Kanadská vesmírna agentúra</strong> je kanadská vládna kozmická agentúra, ktorá zabezpečuje
                 vesmírny program tejto krajiny. Bola založená v marci 1989. Na jej čele stojí prezident, ktorý sa

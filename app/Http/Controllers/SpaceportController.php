@@ -40,10 +40,10 @@ class SpaceportController extends Controller
         ]);
 
         if ($validator->fails()) {
-            dd($validator->errors());
-            return redirect('post/create')
-                        ->withErrors($validator)
-                        ->withInput();
+            return response()->json([
+                'status' => 'error',
+                'data' => $validator->errors()
+            ], 422);
         }
 
         $data = $request->all();
@@ -55,7 +55,7 @@ class SpaceportController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Spaceport $spaceport
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Spaceport $spaceport)
@@ -70,11 +70,12 @@ class SpaceportController extends Controller
         ]);
 
         if ($validator->fails()) {
-            dd($validator->errors());
-            return redirect('post/create')
-                        ->withErrors($validator)
-                        ->withInput();
+            return response()->json([
+                'status' => 'error',
+                'data' => $validator->errors()
+            ], 422);
         }
+        
         $spaceport->name = $request->spaceport_edit_name;
         $spaceport->country_id = $request->spaceport_edit_country_id;
         $spaceport->launches = $request->spaceport_edit_launches;

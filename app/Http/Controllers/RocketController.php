@@ -26,16 +26,6 @@ class RocketController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -53,10 +43,10 @@ class RocketController extends Controller
         ]);
 
         if ($validator->fails()) {
-            dd($validator->errors());
-            return redirect('post/create')
-                        ->withErrors($validator)
-                        ->withInput();
+            return response()->json([
+                'status' => 'error',
+                'data' => $validator->errors()
+            ], 422);
         }
 
         $path = $request->file('file')->store(
@@ -69,32 +59,10 @@ class RocketController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Rocket  $rocket
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Rocket $rocket)
@@ -108,11 +76,12 @@ class RocketController extends Controller
         ]);
 
         if ($validator->fails()) {
-            dd($validator->errors());
-            return redirect('post/create')
-                        ->withErrors($validator)
-                        ->withInput();
+            return response()->json([
+                'status' => 'error',
+                'data' => $validator->errors()
+            ], 422);
         }
+        
         $rocket->name = $request->rocket_edit_name;
         $rocket->manufacturer_id = $request->rocket_edit_manufacturer_id;
         $rocket->human_rated = $request->rocket_edit_human_rated;
