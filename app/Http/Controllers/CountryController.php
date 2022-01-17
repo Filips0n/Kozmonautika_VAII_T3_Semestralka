@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Validator;
 
 class CountryController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     function index()
     {
         return view('krajiny');
@@ -23,6 +28,12 @@ class CountryController extends Controller
         }
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     function store(Request $request)
     {
         if($request->ajax())
@@ -34,16 +45,24 @@ class CountryController extends Controller
             ]);
 
             if ($validator->fails()) {
-                //dd($validator->errors());
+                dd($validator->errors());
                 return redirect('post/create')
                             ->withErrors($validator)
                             ->withInput();
             }
+            
             $data = $request->all();
             $country = Country::create($data);
         }
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     function update(Request $request)
     {
         if($request->ajax())
@@ -55,6 +74,12 @@ class CountryController extends Controller
         }
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     function destroy(Request $request)
     {
         if($request->ajax())

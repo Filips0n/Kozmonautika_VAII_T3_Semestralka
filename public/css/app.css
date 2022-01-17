@@ -114,5 +114,18 @@ a.anchor {
     margin-bottom: 2rem;
 }
 
-
+div.outer {
+    width: 300px; 
+    margin: 0 auto; 
+    overflow: visible;
+}
+div.inner {
+    position:relative;
+    float: right;
+    right: 50%;
+}
+div.inner img {
+    position: relative; 
+    right:-50%;
+}
 

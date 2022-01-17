@@ -45,7 +45,7 @@ class ManufacturerController extends Controller
         return redirect('/vyrobcovia');
     }
 
-         /**
+     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

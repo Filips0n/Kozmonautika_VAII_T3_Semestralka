@@ -37,7 +37,6 @@ class SpaceportController extends Controller
             'active_from' => ['required', 'integer', 'min:1900', 'max:2022'],
             'latitude'=> ['required', 'numeric', 'min:-90', 'max:90'],
             'longitude' => ['required', 'numeric', 'min:-180', 'max:180']
-            //'file' => ['required', 'mimes:jpeg,bmp,png,jpg']
         ]);
 
         if ($validator->fails()) {
@@ -47,11 +46,7 @@ class SpaceportController extends Controller
                         ->withInput();
         }
 
-        /*$path = $request->file('file')->store(
-            'spaceportImages', ["disk"=>"public"]
-        );*/
         $data = $request->all();
-        //$data["image"]=$path;
         $spaceport = Spaceport::create($data);
         return redirect('/kozmodromy');
     }
@@ -90,7 +85,7 @@ class SpaceportController extends Controller
         return redirect('/kozmodromy');
     }
 
-        /**
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id

@@ -7,10 +7,10 @@
             <table class="table table-dark table-striped table-hover mt-3" style="width:100%">
                 <thead class="thead-light">
                     <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Krajina</th>
-                    <th scope="col">Názov</th>
-                    <th scope="col">Úpravy</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Krajina</th>
+                        <th scope="col">Názov</th>
+                        <th scope="col">Úpravy</th>
                     </tr>
                 </thead>
                 <tbody id="manufacturer-tbody">

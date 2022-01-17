@@ -39,12 +39,10 @@ function showButtons(data, explButtonsWrapper){
     }
 
     explButtonsWrapper.innerHTML += `<a class="explanation-button" id="all" style="color: inherit;text-decoration: none;">
-    <button type="button" class="btn btn-info m-1">Všetky</button>
-</a>`;
+                                        <button type="button" class="btn btn-info m-1">Všetky</button></a>`;
     buttonLetters.forEach((element) => { 
         let row = `<a class="explanation-button" id="${element}" style="color: inherit;text-decoration: none;">
-        <button type="button" class="btn btn-primary m-1">${element}</button>
-    </a>`;
+                        <button type="button" class="btn btn-primary m-1">${element}</button></a>`;
         explButtonsWrapper.innerHTML += row;
     });
 }
@@ -52,9 +50,9 @@ function showButtons(data, explButtonsWrapper){
 function showContent(data, explContentWrapper){
     for (let i = 0; i < data.length; i++) {
         let row = `<ul class="list-group list-group-horizontal m-1 explanation-row" id="${data[i].title.slice(0,1)}">
-        <li class="list-group-item">${data[i].title}</li>
-        <li class="list-group-item flex-fill">${data[i].text}</li>
-      </ul>`;
+                        <li class="list-group-item">${data[i].title}</li>
+                        <li class="list-group-item flex-fill">${data[i].text}</li>
+                    </ul>`;
       explContentWrapper.innerHTML += row;
     }
 }
