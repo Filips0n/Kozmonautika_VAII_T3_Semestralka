@@ -13,7 +13,7 @@
             <!-- Modal body -->
             <div class="modal-body text-dark">
                 <div class="input-group">
-                    <form method="post" id="spaceport-edit-form" enctype="multipart/form-data">
+                    <form method="post" id="spaceport-edit-form" enctype="multipart/form-data" class="w-100">
                         @csrf
                         <div class="form-group">
                             <div class="input-group mb-1">

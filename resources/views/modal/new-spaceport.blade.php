@@ -13,7 +13,7 @@
             <!-- Modal body -->
             <div class="modal-body text-dark">
                 <div class="input-group">
-                    <form method="post" action="{{route("createSpaceport")}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route("createSpaceport")}}" enctype="multipart/form-data" class="w-100">
                         @csrf
                         <div class="form-group">
                             <input class="form-control mb-1" value="{{$country->id}}" name="country_id" type="hidden" min="0" step="1" max="9999" required>

@@ -73,7 +73,6 @@
                             @endauth
                         </div>
                     </div>
-
                 @endforeach   
                 @auth
                     <button action="#" type="button" class="btn btn-primary d-flex align-items-center justify-content-center"
@@ -81,9 +80,6 @@
                     <i class="bi bi-plus d-flex align-items-center"></i>
                     </button> 
                 @endauth
-                @php
-                break;   
-               @endphp
             @endforeach  
         </div>
         <!--    Right panel menu    -->
